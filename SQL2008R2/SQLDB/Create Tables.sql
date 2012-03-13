@@ -1,20 +1,11 @@
 /********************************************************************************************
 ** Decription : Create Tables required for creating SQL App for ETL Framework
-** IMPORTANT NOTE : THIS SCRIPT HAS TO BE RUN IN SQLCMD MODE
 ** Author : Pavan Keerthi
 
 Change Log:
 -----------
 01-March-2012 :Created Initial Version.
 *********************************************************************************************/
-:setvar ServerName "PAVANKEERTHI-HP"
-:setvar DatabaseName "ETLFramework2008"
-GO
-:CONNECT $(ServerName)
-GO
-USE $(DatabaseName)
-GO
-
 --Table to hold ETL Workflow 
 
 SET ANSI_NULLS ON

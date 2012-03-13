@@ -1,20 +1,11 @@
 /********************************************************************************************
-** Decription : Create User-defined Data Types in SQL App Tables for ETL Framework
-** IMPORTANT NOTE : THIS SCRIPT HAS TO BE RUN IN SQLCMD MODE
+** Decription : Create User-defined Data Types in SQL App Tables for ETL 
 ** Author : Pavan Keerthi
 
 Change Log:
 -----------
 07-March-2012 :Created Initial Version.
 *********************************************************************************************/
-:setvar ServerName "PAVANKEERTHI-HP"
-:setvar DatabaseName "ETLFramework2008"
-GO
-:CONNECT $(ServerName)
-GO
-USE $(DatabaseName)
-GO
-
 /* Create a workflow table type. */
 CREATE TYPE WorkflowTableType AS TABLE 
 (WorkflowName nvarchar(255),WorkflowStatus nchar(1),WorkflowRecoveryMode nchar(1))
