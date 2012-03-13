@@ -49,7 +49,7 @@ CREATE TABLE [dbo].[Workflow_Tasks](
 	[Task_FailureAction] [nchar](1) NOT NULL,
 	[Task_RecoveryMode] [nchar](1) NOT NULL,
 	[IsActive] bit NOT NULL DEFAULT 1,
-	[Extract_Limit_Type] [nvarchar](50) NOT NULL,
+	[Extract_Limit_Type] [nvarchar](50) NULL,
 	[Extract_Limit_Start] [nvarchar](255) NULL,
 	[Extract_Limit_End] [nvarchar](255) NULL
 	
