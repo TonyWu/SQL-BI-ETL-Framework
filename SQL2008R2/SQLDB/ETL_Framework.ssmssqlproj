@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="ETL_Framework">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items>
+        <ConnectionNode Name="PAVANKEERTHI-HP:PavanKeerthi-HP\Pavan.Keerthi">
+          <Created>2012-03-06T10:24:33.6970528+00:00</Created>
+          <Type>SQL</Type>
+          <Server>PAVANKEERTHI-HP</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName />
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="Create DB.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:PAVANKEERTHI-HP:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>PAVANKEERTHI-HP</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Create DB.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Create Tables.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:PAVANKEERTHI-HP:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>PAVANKEERTHI-HP</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Create Tables.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Create Procedures.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:PAVANKEERTHI-HP:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>PAVANKEERTHI-HP</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Create Procedures.sql</FullPath>
+        </FileNode>
+        <FileNode Name="Create User Data Types.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:PAVANKEERTHI-HP:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>PAVANKEERTHI-HP</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Create User Data Types.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items />
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>
