@@ -122,7 +122,7 @@ CREATE TABLE [dbo].[ETL_Workflow_Log](
          [SystemExecutionGUID] [uniqueidentifier] NOT NULL,
          [Workflow_Id] [int] NOT NULL,
          [Workflow_StartPeriod] [datetime] NOT NULL,
-         [Workflow_EndPeriod] [datetime]  NOT NULL,
+         [Workflow_EndPeriod] [datetime]  NULL,
          [Workflow_FinishStatus] [nchar](1) NOT NULL
 ) ON [PRIMARY]
 
@@ -152,9 +152,9 @@ CREATE TABLE [dbo].[Workflow_Tasks_Log](
          [Task_Order] [smallint] NULL,
          [PackageGUID] [uniqueidentifier] NOT NULL,
          [Task_StartPeriod] [datetime] NOT NULL,
-         [Task_EndPeriod] [datetime]  NOT NULL,
+         [Task_EndPeriod] [datetime]  NULL,
          [Task_FinishStatus] [nchar](1) NOT NULL,
-         [Extract_Limit_Type] [nvarchar](50) NOT NULL,
+         [Extract_Limit_Type] [nvarchar](50) NULL,
 		 [Extract_Limit_Start] [nvarchar](255) NULL,
 		 [Extract_Limit_End] [nvarchar](255) NULL,
 		 [Rows_Processed] [int] NULL

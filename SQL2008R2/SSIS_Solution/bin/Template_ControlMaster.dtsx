@@ -10,8 +10,8 @@
 <DTS:Property DTS:Name="PackagePriorityClass">0</DTS:Property>
 <DTS:Property DTS:Name="VersionMajor">1</DTS:Property>
 <DTS:Property DTS:Name="VersionMinor">0</DTS:Property>
-<DTS:Property DTS:Name="VersionBuild">30</DTS:Property>
-<DTS:Property DTS:Name="VersionGUID">{38E82771-CCDD-4CF8-8D39-D4057423609C}</DTS:Property>
+<DTS:Property DTS:Name="VersionBuild">22</DTS:Property>
+<DTS:Property DTS:Name="VersionGUID">{B9141F0D-B7BE-4605-B0C2-8D316DC4227C}</DTS:Property>
 <DTS:Property DTS:Name="EnableConfig">0</DTS:Property>
 <DTS:Property DTS:Name="CheckpointFileName"></DTS:Property>
 <DTS:Property DTS:Name="SaveCheckpoints">0</DTS:Property>
@@ -116,7 +116,7 @@
 <DTS:Property DTS:Name="DTSID">{FA456509-C3CB-41E5-AD55-6988036B7FED}</DTS:Property>
 <DTS:Property DTS:Name="Description">Execute SQL Task</DTS:Property>
 <DTS:Property DTS:Name="CreationName">Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=10.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</DTS:Property>
-<DTS:Property DTS:Name="DisableEventHandlers">0</DTS:Property><DTS:ObjectData><SQLTask:SqlTaskData SQLTask:Connection="{40D8CB2A-8447-4D29-BE1D-0D99EFC8FB0D}" SQLTask:TimeOut="0" SQLTask:IsStoredProc="True" SQLTask:BypassPrepare="True" SQLTask:SqlStmtSourceType="DirectInput" SQLTask:SqlStatementSource="usp_Update_WorkflowLog" SQLTask:CodePage="1252" SQLTask:ResultType="ResultSetType_None" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask"><SQLTask:ParameterBinding SQLTask:ParameterName="@WorkflowName" SQLTask:DtsVariableName="ETLFramework::Workflow_Name" SQLTask:ParameterDirection="Input" SQLTask:DataType="16" SQLTask:ParameterSize="255"/><SQLTask:ParameterBinding SQLTask:ParameterName="@UpdateType" SQLTask:DtsVariableName="ETLFramework::UpdateType" SQLTask:ParameterDirection="Input" SQLTask:DataType="16" SQLTask:ParameterSize="20"/><SQLTask:ParameterBinding SQLTask:ParameterName="@ExecutionId" SQLTask:DtsVariableName="ETLFramework::CurrentExecutionId" SQLTask:ParameterDirection="Input" SQLTask:DataType="16" SQLTask:ParameterSize="40"/><SQLTask:ParameterBinding SQLTask:ParameterName="@Result" SQLTask:DtsVariableName="ETLFramework::Sproc_Result" SQLTask:ParameterDirection="Input" SQLTask:DataType="11" SQLTask:ParameterSize="-1"/></SQLTask:SqlTaskData></DTS:ObjectData></DTS:Executable>
+<DTS:Property DTS:Name="DisableEventHandlers">0</DTS:Property><DTS:ObjectData><SQLTask:SqlTaskData SQLTask:Connection="{40D8CB2A-8447-4D29-BE1D-0D99EFC8FB0D}" SQLTask:TimeOut="0" SQLTask:IsStoredProc="True" SQLTask:BypassPrepare="True" SQLTask:SqlStmtSourceType="DirectInput" SQLTask:SqlStatementSource="EXECUTE usp_Update_WorkflowLog" SQLTask:CodePage="1252" SQLTask:ResultType="ResultSetType_None" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask"><SQLTask:ParameterBinding SQLTask:ParameterName="@WorkflowName" SQLTask:DtsVariableName="ETLFramework::Workflow_Name" SQLTask:ParameterDirection="Input" SQLTask:DataType="16" SQLTask:ParameterSize="255"/><SQLTask:ParameterBinding SQLTask:ParameterName="@UpdateType" SQLTask:DtsVariableName="ETLFramework::UpdateType" SQLTask:ParameterDirection="Input" SQLTask:DataType="16" SQLTask:ParameterSize="20"/><SQLTask:ParameterBinding SQLTask:ParameterName="@ExecutionId" SQLTask:DtsVariableName="ETLFramework::CurrentExecutionId" SQLTask:ParameterDirection="Input" SQLTask:DataType="16" SQLTask:ParameterSize="-1"/></SQLTask:SqlTaskData></DTS:ObjectData></DTS:Executable>
 <DTS:Property DTS:Name="ObjectName">Template_ControlMaster</DTS:Property>
 <DTS:Property DTS:Name="DTSID">{9CCDC7D3-FD89-4F69-B737-533D4B00F9D5}</DTS:Property>
 <DTS:Property DTS:Name="Description"></DTS:Property>
@@ -159,7 +159,7 @@
 &lt;/dds&gt;&lt;/dwd:Layout&gt;&lt;dwd:PersistedViewPortTop&gt;-6000&lt;/dwd:PersistedViewPortTop&gt;&lt;/dwd:DtsControlFlowDiagram&gt;&lt;/Package&gt;</DTS:Property>
 <DTS:Property DTS:Name="Namespace">dts-designer-1.0</DTS:Property>
 <DTS:Property DTS:Name="ObjectName">{9CCDC7D3-FD89-4F69-B737-533D4B00F9D5}</DTS:Property>
-<DTS:Property DTS:Name="DTSID">{AEFAB1D7-3B39-408F-AC39-D45174381F9F}</DTS:Property>
+<DTS:Property DTS:Name="DTSID">{6DA314C6-E185-4663-8A26-274989E8FA34}</DTS:Property>
 <DTS:Property DTS:Name="Description"></DTS:Property>
 <DTS:Property DTS:Name="CreationName"></DTS:Property></DTS:PackageVariable>
 <DTS:PackageVariable>
@@ -199,6 +199,6 @@
 &lt;/dds&gt;&lt;/dwd:Layout&gt;&lt;dwd:PersistedViewPortTop&gt;-6000&lt;/dwd:PersistedViewPortTop&gt;&lt;/dwd:DtsControlFlowDiagram&gt;&lt;/Package&gt;</DTS:Property>
 <DTS:Property DTS:Name="Namespace">dts-designer-1.0</DTS:Property>
 <DTS:Property DTS:Name="ObjectName">package-diagram</DTS:Property>
-<DTS:Property DTS:Name="DTSID">{2BC73D66-DD0C-4075-9124-F23A0391A43C}</DTS:Property>
+<DTS:Property DTS:Name="DTSID">{A88D193E-2428-46A7-B76C-949A9E1FD71A}</DTS:Property>
 <DTS:Property DTS:Name="Description"></DTS:Property>
 <DTS:Property DTS:Name="CreationName"></DTS:Property></DTS:PackageVariable></DTS:Executable>
