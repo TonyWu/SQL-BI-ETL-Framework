@@ -43,6 +43,12 @@
           <AssociatedConnUserName />
           <FullPath>Create User Data Types.sql</FullPath>
         </FileNode>
+        <FileNode Name="Reset Data.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:PAVANKEERTHI-HP:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>PAVANKEERTHI-HP</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>Reset Data.sql</FullPath>
+        </FileNode>
       </Items>
     </LogicalFolder>
     <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">

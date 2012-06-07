@@ -1,5 +1,8 @@
 *.user
 *.suo
 *.sqlsuo
-.\*\bin
-.\*\obj
+*.snk
+*.rdp
+bin/
+obj/
+csx/

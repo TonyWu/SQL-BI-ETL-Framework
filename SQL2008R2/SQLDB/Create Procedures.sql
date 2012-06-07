@@ -83,6 +83,9 @@ GO
 CREATE PROCEDURE usp_Update_WorkflowLog (@UpdateType varchar(20),@WorkflowName nvarchar(255)=NULL,@WorkflowId int=NULL
                                          ,@ExecutionId UniqueIdentifier=NULL,@WorkflowStatus nchar(1)=NULL,@Result int OUTPUT)
 AS
+DECLARE @ErrorSave INT
+SET @ErrorSave = 0
+
 /** Allowed Update Types: Start,End,Update **/
 
 	IF @UpdateType = 'Start'
@@ -92,17 +95,21 @@ AS
        	Select @WorkflowId=Workflow_Id From dbo.ETL_Workflow
        	Where Workflow_Name=@WorkflowName
        	
-       	IF(@WorkflowId IS NULL)
-       		RETURN -1
+       	IF(@WorkflowId IS NULL) SET @ErrorSave=-1
        	ELSE
+       	BEGIN
        	 INSERT INTO [dbo].[ETL_Workflow_Log]
            ([SystemExecutionGUID],[Workflow_Id],[Workflow_StartPeriod]
            ,[Workflow_EndPeriod],[Workflow_FinishStatus])
          Values (@ExecutionId,@WorkflowId,GETUTCDATE(),NULL,'I')
-        
+         
+         IF (@@ERROR <> 0) SET @ErrorSave = @@ERROR 
+
         --Set Master Table Record Status to "Started"
         UPDATE dbo.ETL_Workflow SET Workflow_Status='S' Where Workflow_Id=@WorkflowId
-          
+        
+        IF (@@ERROR <> 0) SET @ErrorSave = @@ERROR 
+        END 
 	END
     
     IF @UpdateType = 'Update'
@@ -112,8 +119,12 @@ AS
        SET [Workflow_FinishStatus] = @WorkflowStatus
        WHERE Workflow_Id=@WorkflowId AND SystemExecutionGUID=@ExecutionId
        
+       IF (@@ERROR <> 0) SET @ErrorSave = @@ERROR
+       
        --Set Master Table Record Status also to "Running"
        UPDATE dbo.ETL_Workflow SET Workflow_Status='R' Where Workflow_Id=@WorkflowId
+       
+       IF (@@ERROR <> 0) SET @ErrorSave = @@ERROR
        
 	END
     
@@ -126,11 +137,18 @@ AS
            ,[Workflow_FinishStatus] = @WorkflowStatus
        WHERE Workflow_Id=@WorkflowId AND SystemExecutionGUID=@ExecutionId
        
+       IF (@@ERROR <> 0) SET @ErrorSave = @@ERROR
+       
        --Set Master Table Record Status to "Not Running"
-       UPDATE dbo.ETL_Workflow SET Workflow_Status='N' Where Workflow_Id=@WorkflowId       
+       UPDATE dbo.ETL_Workflow SET Workflow_Status='N' Where Workflow_Id=@WorkflowId  
+       
+       IF (@@ERROR <> 0) SET @ErrorSave = @@ERROR   
+       
 	END
-    
-  RETURN 0
+  
+  SET @Result=@ErrorSave 
+   
+  RETURN @ErrorSave
 
 GO
 SET ANSI_NULLS OFF
@@ -146,6 +164,9 @@ GO
 CREATE PROCEDURE usp_Update_TaskLog (@UpdateType varchar(20),@WorkflowId int=NULL,@TaskId int=NULL
                                          ,@ExecutionId UniqueIdentifier=NULL,@TaskStatus nchar(1)=NULL,@Result int OUTPUT)
 AS
+DECLARE @ErrorSave INT
+SET @ErrorSave = 0
+
 /** Allowed Update Types: Start,End,Update **/
 	IF @UpdateType = 'Start'
 	--Create New Log Row for each Task and "Initialise" the Status
@@ -165,9 +186,12 @@ AS
 		INNER JOIN [dbo].[Workflow_Tasks] T ON W.[Workflow_Id]=T.[Workflow_id] AND T.IsActive=1 
 		INNER JOIN [dbo].[Task_Packages] P ON T.[Task_Id]=P.[Task_Id] AND P.IsActive=1
 		
+		IF (@@ERROR <> 0) SET @ErrorSave = @@ERROR 
+		
 		--Set the Master Table Record status to "Started"
 		Update dbo.Workflow_Tasks SET Task_Status='S' Where Workflow_Id=@WorkflowId
     
+         IF (@@ERROR <> 0) SET @ErrorSave = @@ERROR 
 	END
 	
 	IF @UpdateType = 'Update'
@@ -177,8 +201,12 @@ AS
 	SET [Task_FinishStatus]=@TaskStatus 
 	Where SystemExecutionGUID=@ExecutionId AND Workflow_Id=@WorkflowId AND Task_Id=@TaskId
 	  
+	IF (@@ERROR <> 0) SET @ErrorSave = @@ERROR 
+	  
 	--Set the Master Table Record status to "Running"  
 	Update dbo.Workflow_Tasks SET Task_Status='R' Where Workflow_Id=@WorkflowId
+	
+	IF (@@ERROR <> 0) SET @ErrorSave = @@ERROR 
 	
 	END
 	
@@ -189,12 +217,18 @@ AS
 	SET [Task_FinishStatus]=@TaskStatus ,Task_EndPeriod=GETDATE()
 	Where SystemExecutionGUID=@ExecutionId AND Workflow_Id=@WorkflowId AND Task_Id=@TaskId
 	
+	IF (@@ERROR <> 0) SET @ErrorSave = @@ERROR 
+	
 	--Set the Master Table Record status to "Not Running"  
 	Update dbo.Workflow_Tasks SET Task_Status='N' Where Workflow_Id=@WorkflowId
 	
+	IF (@@ERROR <> 0) SET @ErrorSave = @@ERROR 
+	
 	END
 	
-	RETURN 0
+  SET @Result=@ErrorSave 
+   
+  RETURN @ErrorSave
 
 GO
 SET ANSI_NULLS OFF
